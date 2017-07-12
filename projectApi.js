@@ -140,3 +140,21 @@ function addProject(ownerId, ownerToken, projectName, projectDiscription) {
 
 
 addPerson(5, 6, "la", 4);
+
+module.exports = {
+    listProgress,
+    changeOrder,
+    changeProgressName,
+    delProgress,
+    createProgress,
+    changePermission,
+    getPermission,
+    getPersonList,
+    delPerson,
+    moveProject,
+    getProjectList,
+    changeProjectInfo,
+    getProjectInformation,
+    delProject,
+    addProject
+};

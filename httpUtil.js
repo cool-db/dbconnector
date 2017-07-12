@@ -1,7 +1,7 @@
 /**
  * Created by xueyingchen.
  */
-const request = require('superagent')
+const request = require('superagent');
 
 /**
  * 底层xhr函数，返回可加error-handle和url参数的函数
@@ -17,7 +17,7 @@ const baseXhr = (errHandler) => ({url, method = 'GET', body = null}) =>
                     if (res.body.code === 200) {
 
 
-                        console.log(res.body.result)
+                        console.log(res.body.result);
                         resolve(res.body.result)
 
 
@@ -28,7 +28,7 @@ const baseXhr = (errHandler) => ({url, method = 'GET', body = null}) =>
                     reject(res.body.message)
                 }
             })
-    ).catch(errHandler)
+    ).catch(errHandler);
 
 /**
  * error-handler是直接更改位于root的toast的状态
@@ -37,13 +37,13 @@ const baseXhr = (errHandler) => ({url, method = 'GET', body = null}) =>
  */
 const errHandler = (msg) => {
     throw new Error(msg)
-}
+};
 
 /**
  * 具体方法的抽象函数，已经有了默认的错误处理函数
  * @type {Function}
  */
-const errorXhr = baseXhr(errHandler)
+const errorXhr = baseXhr(errHandler);
 
 /**
  * get函数
@@ -56,5 +56,5 @@ module.exports = {
     httpPut: (url, body) => errorXhr({url, method: 'PUT', body}),
     httpDel: (url, body) => errorXhr({url, method: 'DELETE', body}),
     baseURL: '123.207.222.112:5001/api/'
-}
+};
 

@@ -2,22 +2,22 @@
  * Created by kanxuan on 2017/7/11.
  */
 
-const util = require('./httpUtil.js')
+const util = require('./httpUtil.js');
 
 function login(email, password) {
-    return util.httpPost(util.baseURL + "login", { email: email, password: password })
+    return util.httpPost(util.baseURL + "login", {email: email, password: password})
 }
 
 function authority(token) {
-    return util.httpPost(util.baseURL + "authority", { token: token })
+    return util.httpPost(util.baseURL + "authority", {token: token})
 }
 
 function logout(user_id, token) {
-    return util.httpDel(util.baseURL + "login", { id: user_id, token: token })
+    return util.httpDel(util.baseURL + "login", {id: user_id, token: token})
 }
 
 function register(email, password) {
-    return util.httpPost(util.baseURL + "user", { email: email, password: password })
+    return util.httpPost(util.baseURL + "user", {email: email, password: password})
 }
 
 function getUserInformation(id, token) {
@@ -40,7 +40,7 @@ function changeUserInformation(id, token, name, address, gender, phonenumber, jo
 
 //接口参数不全
 function changeAvatar(avatar_url) {
-    return util.httpPut(util.baseURL + "user/avator", { avatar_url: avatar_url })
+    return util.httpPut(util.baseURL + "user/avator", {avatar_url: avatar_url})
 }
 
 function changePassword(id, fromPassword, toPassword) {
@@ -52,10 +52,19 @@ function changePassword(id, fromPassword, toPassword) {
 }
 
 
-
 // login("lalala@la", "lala")
 // authority("la")
 // logout(6,"la")
 // changeUserInformation(6, "la","ll","asdff", true,"12344553", "1432", "21414", new Date())
 // getUserInformation(6, "la")
 // changePassword(6, "lala", "lal")
+module.exports = {
+    login,
+    authority,
+    logout,
+    register,
+    getUserInformation,
+    changeUserInformation,
+    changeAvatar,
+    changePassword
+};

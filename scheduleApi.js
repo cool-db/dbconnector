@@ -62,3 +62,14 @@ function deleteParticipator(scheduleId, participatorsId, operatorId) {
 function getParticipatorList(scheduleId) {
     return util.httpGet(util.httpGet + "schedule/participator/list?scheduleId=" + scheduleId)
 }
+
+module.exports = {
+    createSchedule,
+    deleteSchedule,
+    updateSchedule,
+    getSchedule,
+    getScheduleList,
+    addParticipator,
+    deleteParticipator,
+    getParticipatorList
+};

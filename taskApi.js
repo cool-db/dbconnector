@@ -89,3 +89,19 @@ function getMemberList(taskId) {
     return util.httpGet(util.httpGet + "task/participator/list?taskId=“ + taskId")
 }
 
+module.exports={
+    createTask,
+    deleteTask,
+    getTaskList,
+    updateInfo,
+    getInfo,
+    updateState,
+    createSubTask,
+    deleteSubTask,
+    getSubtaskList,
+    updateSubtaskInfo,
+    updateSubtaskState,
+    addMember,
+    deleteMember,
+    getMemberList
+};
