@@ -51,6 +51,7 @@ function deleteSubTask(subtaskId, userId) {
     return util.httpDel(util.baseURL + "subtask", {subtaskId: subtaskId, userId: userId})
 }
 
+//not pass
 function getSubtaskList(subtaskId) {
     return util.httpGet(util.baseURL + "subtask/list/?subtaskId=” += subtaskId")
 }
@@ -70,6 +71,7 @@ function updateSubtaskState(subtaskId, userId) {
     })
 }
 
+
 function addMember(taskId, participatorIds) {
     return util.httpDel(util.baseURL + "task/participator", {
         taskId: taskId,
@@ -87,6 +89,18 @@ function deleteMember(taskId, participatorIds) {
 
 function getMemberList(taskId) {
     return util.httpGet(util.httpGet + "task/participator/list?taskId=“ + taskId")
+}
+
+function addComment(taskId, content, time, userId){
+    return util.httpPost(util.baseURL+"task/comment", { taskId: taskId, content:content, time: time, userId: userId })
+}
+
+function deleteComment(taskId, commentId, userId){
+    return util.httpDelete(util.baseURL+"task/comment", { taskId: taskId, commentId: commentId,  userId: userId })
+}
+
+function getCommentList(taskId){
+    return util.httpGet(util.baseURL+"task/comment/list", {participatorIds: participatorIds})
 }
 
 module.exports={
