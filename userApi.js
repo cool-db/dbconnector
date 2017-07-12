@@ -50,7 +50,7 @@ function changePassword(id, fromPassword, toPassword) {
         passwordTo: toPassword
     })
 }
-
+register('bx','bx');
 
 // login("lalala@la", "lala")
 // authority("la")
@@ -68,3 +68,4 @@ module.exports = {
     changeAvatar,
     changePassword
 };
+
