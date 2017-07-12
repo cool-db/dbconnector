@@ -1,23 +1,23 @@
-const util = require('./httpUtil.js')
+const util = require('./httpUtil.js');
 
 function createTask(name, content, creatorId, memberId, progressId, file, ddl) {
     return util.httpPost(util.baseURL + "task", {
         name: name,
-        content: content,	
-	creatorId: creatorId,
-	memberIds: memberIds,
+        content: content,
+        creatorId: creatorId,
+        memberIds: memberIds,
         progressId: progressId,
-	file: file,
-	ddl: ddl
+        file: file,
+        ddl: ddl
     })
 }
 
 function deleteTask(projectId, taskId, userId) {
-    return util.httpDel(util.baseURL + "task", { projectId: projectId, taskId: taskId, userId: userId })
+    return util.httpDel(util.baseURL + "task", {projectId: projectId, taskId: taskId, userId: userId})
 }
 
 function getTaskList(projectId, userId) {
-    return util.httpGet(util.baseURL + "task/list?projectId=” + = projectId “&userId=“ + userId)
+    return util.httpGet(util.baseURL + "task/list?projectId=” + = projectId “&userId=“ + userId")
 }
 
 function updateInfo(taskId, executorId, userId) {
@@ -29,7 +29,7 @@ function updateInfo(taskId, executorId, userId) {
 }
 
 function getInfo(projectId, taskId) {
-    return util.httpGet(util.baseURL + "task/item?projectId=” + = projectId “&taskId” += taskId )
+    return util.httpGet(util.baseURL + "task/item?projectId=” + = projectId “&taskId” += taskId")
 }
 
 function updateState(taskId, userId) {
@@ -42,17 +42,17 @@ function updateState(taskId, userId) {
 function createSubTask(subtaskContent, taskId, userId) {
     return util.httpPost(util.baseURL + "subtask", {
         subtaskContent: subtaskContent,
-        taskId: taskId,	
-	userId: userId
+        taskId: taskId,
+        userId: userId
     })
 }
 
 function deleteSubTask(subtaskId, userId) {
-    return util.httpDel(util.baseURL + "subtask", { subtaskId: subtaskId, userId: userId })
+    return util.httpDel(util.baseURL + "subtask", {subtaskId: subtaskId, userId: userId})
 }
 
 function getSubtaskList(subtaskId) {
-    return util.httpGet(util.baseURL + "subtask/list/?subtaskId=” += subtaskId)
+    return util.httpGet(util.baseURL + "subtask/list/?subtaskId=” += subtaskId")
 }
 
 function updateSubtaskInfo(subtaskId, subtaskExecutorId) {
@@ -71,21 +71,21 @@ function updateSubtaskState(subtaskId, userId) {
 }
 
 function addMember(taskId, participatorIds) {
-    return util.httpDel(util.baseURL + "task/participator"), {
+    return util.httpDel(util.baseURL + "task/participator", {
         taskId: taskId,
         participatorIds: participatorIds
-    }
+    })
 }
 
 function deleteMember(taskId, participatorIds) {
-    return util.httpDel(util.baseURL + "task/participator"), {
+    return util.httpDel(util.baseURL + "task/participator", {
         taskId: taskId,
         participatorIds: participatorIds
-    }
+    })
 }
 
 
 function getMemberList(taskId) {
-    return util.httpGet(util.httpGet + "task/participator/list?taskId=“ + taskId)
+    return util.httpGet(util.httpGet + "task/participator/list?taskId=“ + taskId")
 }
 

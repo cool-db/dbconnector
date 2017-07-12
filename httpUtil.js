@@ -1,7 +1,7 @@
 /**
  * Created by xueyingchen.
  */
-const request = require( 'superagent')
+const request = require('superagent')
 
 /**
  * 底层xhr函数，返回可加error-handle和url参数的函数
@@ -9,25 +9,26 @@ const request = require( 'superagent')
  * @return {Function} errXhrWrapper
  */
 const baseXhr = (errHandler) => ({url, method = 'GET', body = null}) =>
-  new Promise((resolve, reject) =>
-    request(method, url)
-      .send(body)
-      .end((err, res) => {
-        if (res.statusCode === 200) {
-          if (res.body.code === 200) {
+    new Promise((resolve, reject) =>
+        request(method, url)
+            .send(body)
+            .end((err, res) => {
+                if (res.statusCode === 200) {
+                    if (res.body.code === 200) {
 
 
-              console.log(res.body.result)
-              resolve(res.body.result)
+                        console.log(res.body.result)
+                        resolve(res.body.result)
 
 
-
-          } else { reject(res.body.message) }
-        } else {
-          reject(res.body.message)
-        }
-      })
-  ).catch(errHandler)
+                    } else {
+                        reject(res.body.message)
+                    }
+                } else {
+                    reject(res.body.message)
+                }
+            })
+    ).catch(errHandler)
 
 /**
  * error-handler是直接更改位于root的toast的状态
@@ -35,7 +36,7 @@ const baseXhr = (errHandler) => ({url, method = 'GET', body = null}) =>
  * @return void
  */
 const errHandler = (msg) => {
-  throw new Error(msg)
+    throw new Error(msg)
 }
 
 /**

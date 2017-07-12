@@ -44,19 +44,19 @@ function getScheduleList(userId) {
 }
 
 function addParticipator(scheduleId, participatorsId, operatorId) {
-    return util.httpPut(util.baseURL + "schedule/participator"), {
+    return util.httpPut(util.baseURL + "schedule/participator", {
         scheduleId: scheduleId,
         participatorsId: participatorsId,
         operatorId: operatorId
-    }
+    })
 }
 
 function deleteParticipator(scheduleId, participatorsId, operatorId) {
-    return util.httpDel(util.baseURL + "schedule/participator"), {
+    return util.httpDel(util.baseURL + "schedule/participator", {
         scheduleId: scheduleId,
         participatorsId: participatorsId,
         operatorId: operatorId
-    }
+    })
 }
 
 function getParticipatorList(scheduleId) {

@@ -2,7 +2,7 @@
  * Created by kanxuan on 2017/7/11.
  */
 
-const util = require('./httpUtil.js')
+const util = require('./httpUtil.js');
 
 function listProgress(projectId) {
     return util.httpGet(util.baseURL + "project/progress/list?projectId=" + projectId)
@@ -72,7 +72,12 @@ function delPerson(projectId, ownerId, ownerToken, memberId) {
 }
 
 function addPerson(projectid, ownid, ownertoken, memberid) {
-    return util.httpPost(util.baseURL + "project/member", { projectId: projectid, ownerId: ownid, ownerToken: ownertoken, memberId: memberid })
+    return util.httpPost(util.baseURL + "project/member", {
+        projectId: projectid,
+        ownerId: ownid,
+        ownerToken: ownertoken,
+        memberId: memberid
+    })
 }
 
 function moveProject(projectid, ownid, ownertoken, ownIdTo) {
@@ -134,5 +139,4 @@ function addProject(ownerId, ownerToken, projectName, projectDiscription) {
 // getPersonList(5)
 
 
-
-addPerson(5, 6, "la", 4)
+addPerson(5, 6, "la", 4);
